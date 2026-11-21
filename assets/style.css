@@ -245,11 +245,14 @@
   nav.links{display:flex;align-items:center}
   @media(max-width:900px){nav.links{display:none}nav.links.open{display:block}.lang{margin:14px 0 0;justify-content:flex-start}.lang a{padding:8px 12px !important;border:1px solid rgba(255,255,255,.25) !important;margin-right:6px !important}.lang a.on{border-color:var(--gold) !important}}
 
-.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:8px}
-.gallery .gi{display:block;position:relative;overflow:hidden;aspect-ratio:4/3;background:linear-gradient(135deg,var(--navy),var(--sand));border-radius:2px}
-.gallery .gi:first-child{grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
-.gallery img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
-.gallery .gi:hover img{transform:scale(1.05)}
+.gwrap{position:relative}
+.gallery{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x proximity;padding:4px 0 12px;margin-top:8px;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:var(--gold) var(--sand)}
+.gallery .gi{flex:0 0 auto;width:200px;height:134px;display:block;position:relative;overflow:hidden;background:linear-gradient(135deg,var(--navy),var(--sand));border-radius:2px;scroll-snap-align:start;cursor:zoom-in}
+.gallery img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+.gallery .gi:hover img{transform:scale(1.07)}
+.gbtn{position:absolute;top:calc(50% - 5px);transform:translateY(-50%);width:42px;height:42px;border-radius:50%;border:0;background:rgba(10,28,51,.8);color:#fff;font-size:1.6rem;line-height:1;cursor:pointer;z-index:3}
+.gbtn.l{left:-10px}.gbtn.r{right:-10px}
+@media(max-width:700px){.gbtn{display:none}}
 .gcred{font-size:.78rem;margin-top:14px}
 .tile .tl{display:inline-block;margin-top:12px;font-size:.78rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);border-bottom:1px solid var(--gold-soft);text-decoration:none;padding-bottom:2px;font-weight:500}
 .tile .tl:hover{color:var(--navy);border-color:var(--navy)}
@@ -259,4 +262,3 @@
 #lb .cap{color:#fff;opacity:.75;font-size:.8rem;margin-top:12px;letter-spacing:.5px}
 #lb button{position:absolute;background:none;border:0;color:#fff;font-size:2.2rem;cursor:pointer;padding:14px;line-height:1}
 #lb .x{top:10px;right:14px}#lb .p{left:8px;top:50%}#lb .n{right:8px;top:50%}
-@media(max-width:700px){.gallery{grid-template-columns:repeat(2,1fr)}.gallery .gi:first-child{grid-column:span 2;grid-row:auto;aspect-ratio:4/3}}

@@ -11,6 +11,8 @@
   if(cur!=='en'||stored===null||stored==='en'){try{localStorage.setItem(KEY,cur);}catch(e){}}
   var b=document.querySelector('.menu-btn'),n=document.querySelector('nav.links');
   if(b&&n){b.addEventListener('click',function(){var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o?'true':'false');});}
+  var gs=document.querySelector('.gallery');
+  if(gs){var gb=document.querySelectorAll('.gbtn');for(var t=0;t<gb.length;t++){gb[t].addEventListener('click',function(){gs.scrollBy({left:(this.classList.contains('l')?-1:1)*gs.clientWidth*0.8,behavior:'smooth'});});}}
   var gis=document.querySelectorAll('.gallery .gi');
   if(gis.length){
     var lb=document.createElement('div');lb.id='lb';lb.setAttribute('role','dialog');lb.setAttribute('aria-modal','true');
