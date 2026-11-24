@@ -2,7 +2,7 @@
   var KEY='tb_lang', cur=document.documentElement.getAttribute('data-lang')||'en';
   var stored=null; try{stored=localStorage.getItem(KEY);}catch(e){}
   // Language persistence: a visitor who chose ES/FR stays in that language
-  if(cur==='en' && (stored==='es'||stored==='fr') && !/[?&]stay=1/.test(location.search)){
+  if(cur==='en' && !document.documentElement.hasAttribute('data-noredir') && (stored==='es'||stored==='fr') && !/[?&]stay=1/.test(location.search)){
     var alt=document.querySelector('.lang a[data-lang="'+stored+'"]');
     if(alt){location.replace(alt.getAttribute('href')+location.hash);return;}
   }
